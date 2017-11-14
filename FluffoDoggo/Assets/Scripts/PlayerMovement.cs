@@ -18,18 +18,20 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded = false;
     private float checkerRaduis = 0.2f;
     private LayerMask groundMask;
+    private CircleCollider2D circleCollider;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         groundChecker = GameObject.Find("GroundChecker").transform;
         groundMask = LayerMask.GetMask("Ground");
+        circleCollider = GetComponent<CircleCollider2D>();
     }
 
     private void Update()
     {
         //if player is on the ground and presses the jump button -> jump
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && IsGrounded())
             rb.AddForce(new Vector2(0, JUMPHEIGHT));
 
         //accelerate with input on the horizontal axis
@@ -47,5 +49,12 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundChecker.position, checkerRaduis, groundMask);
+    }
+
+    private bool IsGrounded()
+    {
+        // Checks if the bottom of the circle is within a very short distance of something
+        // It's kinda shitty but it works for now. Will probably need to be changed tho
+        return Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - (circleCollider.bounds.extents.y + 0.01f)), Vector2.down, 0.1f);
     }
 }
