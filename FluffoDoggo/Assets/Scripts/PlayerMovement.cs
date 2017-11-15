@@ -6,13 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     /*
      * TODO
-     * add slope acceleration
+     * in CheckWall() need to make sure object hit is a wall and not anything (ramp, enemy, pick up)
      */
 
     private Rigidbody2D rb;
     private const float JUMPHEIGHT = 300f;
-    public float moveSpeed;
+    private float moveSpeed;
     private bool movingLeft;
+    private bool onSlope;
 
     private float groundDistance = 0.2f;
     private CircleCollider2D circleCollider;
@@ -31,13 +32,16 @@ public class PlayerMovement : MonoBehaviour
 
         //accelerate with input on the horizontal axis
         if(IsGrounded())
-            moveSpeed += Input.GetAxis("Horizontal") * Time.deltaTime;
+            moveSpeed += Input.GetAxis("Horizontal") * Time.deltaTime; // ~0.016
 
-        //if no input decrease speed depending on direction
-        if (moveSpeed < 0 && Input.GetAxis("Horizontal") == 0 && rb.velocity.x != 0)
-            moveSpeed += Time.deltaTime * 2;
-        else if (moveSpeed > 0 && Input.GetAxis("Horizontal") == 0 && rb.velocity.x != 0)
-            moveSpeed -= Time.deltaTime * 2;
+        //if no input decrease speed depending on direction if not on a slope or in the air -> slope allows for additional acceleration from the slope still
+        if (!onSlope && IsGrounded())
+        {
+            if (moveSpeed < 0 && Input.GetAxis("Horizontal") == 0 && rb.velocity.x != 0)
+                moveSpeed += Time.deltaTime * 2;
+            else if (moveSpeed > 0 && Input.GetAxis("Horizontal") == 0 && rb.velocity.x != 0)
+                moveSpeed -= Time.deltaTime * 2;
+        }
 
         //ajust facing direction variable for wall bouncing
         if (movingLeft && moveSpeed > 0)
@@ -53,11 +57,14 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - (circleCollider.bounds.extents.y + 0.01f)), Vector2.down, groundDistance);
         if (hit)
         {
-            if (hit.collider.tag == "Ground")
+            if (hit.collider.tag == "Ground" && hit.normal.x != 0)
             {
-                //apply normal.x to moveSpeed to account for slope angle
-                moveSpeed += hit.normal.x / 5;
+                //apply normal.x to moveSpeed to account for slope angle and set on slope
+                moveSpeed += hit.normal.x / 20;
+                onSlope = true;
             }
+            else
+                onSlope = false;
         }
 
         //apply velocity changes
@@ -73,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CheckWall()
     {
+        //checks if there is a wall depending on direction traveling
         if (movingLeft)
             return Physics2D.Raycast(new Vector2(transform.position.x - (circleCollider.bounds.extents.x + 0.01f), transform.position.y), Vector2.left, groundDistance);
         else
