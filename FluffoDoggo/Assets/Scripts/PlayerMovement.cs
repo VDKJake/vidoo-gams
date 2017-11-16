@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed;
     private bool movingLeft;
     private bool onSlope;
+    private bool jumpInput;
 
     private float groundDistance = 0.2f;
     private CircleCollider2D circleCollider;
@@ -22,13 +23,23 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
+        jumpInput = false;
     }
 
     private void Update()
     {
         //if player is on the ground and presses the jump button -> jump
         if (Input.GetButtonDown("Jump") && IsGrounded())
-            rb.AddForce(new Vector2(0, JUMPHEIGHT));
+        {
+            if ((rb.velocity.y >= 0))
+            {
+                rb.AddForce(new Vector2(0, JUMPHEIGHT));
+            }
+            else if ((rb.velocity.y < 0) && jumpInput == false)
+            {
+                jumpInput = true;
+            }
+        }
 
         //accelerate with input on the horizontal axis
         if(IsGrounded())
@@ -68,14 +79,15 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //apply velocity changes
-        rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+        float y = Mathf.Clamp(rb.velocity.y, -10, 10);
+        rb.velocity = new Vector2(moveSpeed, y);
     }
 
     private bool IsGrounded()
     {
         // Checks if the bottom of the circle is within a very short distance of something
         // It's kinda shitty but it works for now. Will probably need to be changed tho
-        return Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - (circleCollider.bounds.extents.y + 0.01f)), Vector2.down, groundDistance);
+        return Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - (circleCollider.bounds.extents.y + 0.3f)), Vector2.down, groundDistance);
     }
 
     private bool CheckWall()
@@ -85,5 +97,14 @@ public class PlayerMovement : MonoBehaviour
             return Physics2D.Raycast(new Vector2(transform.position.x - (circleCollider.bounds.extents.x + 0.01f), transform.position.y), Vector2.left, groundDistance);
         else
             return Physics2D.Raycast(new Vector2(transform.position.x + (circleCollider.bounds.extents.x + 0.01f), transform.position.y), Vector2.right, groundDistance);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (jumpInput == true)
+        {
+            rb.AddForce(new Vector2(0, JUMPHEIGHT));
+            jumpInput = false;
+        }
     }
 }
