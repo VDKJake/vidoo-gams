@@ -15,11 +15,13 @@ public class PlayerExpand : MonoBehaviour {
 
     private CircleCollider2D circleCollider;
     private GameObject bg;
+    private float baseRadius;
 
 	// Use this for initialization
 	void Start ()
     {
         circleCollider = GetComponent<CircleCollider2D>();
+        baseRadius = circleCollider.bounds.extents.x;
         bg = transform.Find("TempBG").gameObject;
 	}
 	
@@ -44,7 +46,7 @@ public class PlayerExpand : MonoBehaviour {
 
     public void Contract()
     { //Make doggo smaller, reversing the steps in Expand
-        if (circleCollider.radius > 0.5F) //So doggo can't shrink more than default
+        if (circleCollider.radius > baseRadius) //So doggo can't shrink more than default
         {
             bg.transform.localScale = new Vector2(bg.transform.localScale.x - 0.2F, bg.transform.localScale.y - 0.2F); //Shrink Background
             circleCollider.radius -= 0.1F; //Take 0.1 off the radius

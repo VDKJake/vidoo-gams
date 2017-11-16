@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
      * in CheckWall() need to make sure object hit is a wall and not anything (ramp, enemy, pick up)
      */
     public float jumpHeight = 300f;
+    public Animator faceAnimator;
 
     private Rigidbody2D rb;
     private float moveSpeed;
@@ -83,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         //apply velocity changes
         float y = Mathf.Clamp(rb.velocity.y, -10, 10);
         rb.velocity = new Vector2(moveSpeed, y);
+        faceAnimator.SetFloat("Movespeed", rb.velocity.x);
     }
 
     private bool IsGrounded()

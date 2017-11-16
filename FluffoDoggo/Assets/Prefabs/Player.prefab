@@ -119,6 +119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5cc04ca6275d764a8e1209630356a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpHeight: 450
+  mask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!212 &212488497007892044
 SpriteRenderer:
   m_ObjectHideFlags: 1
