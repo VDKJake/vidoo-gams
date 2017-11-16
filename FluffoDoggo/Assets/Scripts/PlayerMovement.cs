@@ -8,9 +8,9 @@ public class PlayerMovement : MonoBehaviour
      * TODO
      * in CheckWall() need to make sure object hit is a wall and not anything (ramp, enemy, pick up)
      */
+    public float jumpHeight = 300f;
 
     private Rigidbody2D rb;
-    private const float JUMPHEIGHT = 300f;
     private float moveSpeed;
     private bool movingLeft;
     private bool onSlope;
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if ((rb.velocity.y >= 0))
             {
-                rb.AddForce(new Vector2(0, JUMPHEIGHT));
+                rb.AddForce(new Vector2(0, jumpHeight));
             }
             else if ((rb.velocity.y < 0) && jumpInput == false)
             {
@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (jumpInput == true)
         {
-            rb.AddForce(new Vector2(0, JUMPHEIGHT));
+            rb.AddForce(new Vector2(0, jumpHeight));
             jumpInput = false;
         }
     }
