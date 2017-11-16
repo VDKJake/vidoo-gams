@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private float groundDistance = 0.2f;
     private CircleCollider2D circleCollider;
 
+    public LayerMask mask;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -65,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = -moveSpeed;
 
         //get the normal.x of the ground doggo is on
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - (circleCollider.bounds.extents.y + 0.01f)), Vector2.down, groundDistance);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - (circleCollider.bounds.extents.y + 0.01f)), Vector2.down, groundDistance, mask);
         if (hit)
         {
             if (hit.collider.tag == "Ground" && hit.normal.x != 0)
@@ -87,16 +89,16 @@ public class PlayerMovement : MonoBehaviour
     {
         // Checks if the bottom of the circle is within a very short distance of something
         // It's kinda shitty but it works for now. Will probably need to be changed tho
-        return Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - (circleCollider.bounds.extents.y + 0.3f)), Vector2.down, groundDistance);
+        return Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - (circleCollider.bounds.extents.y + 0.3f)), Vector2.down, groundDistance, mask);
     }
 
     private bool CheckWall()
     {
         //checks if there is a wall depending on direction traveling
         if (movingLeft)
-            return Physics2D.Raycast(new Vector2(transform.position.x - (circleCollider.bounds.extents.x + 0.01f), transform.position.y), Vector2.left, groundDistance);
+            return Physics2D.Raycast(new Vector2(transform.position.x - (circleCollider.bounds.extents.x + 0.01f), transform.position.y), Vector2.left, groundDistance, mask);
         else
-            return Physics2D.Raycast(new Vector2(transform.position.x + (circleCollider.bounds.extents.x + 0.01f), transform.position.y), Vector2.right, groundDistance);
+            return Physics2D.Raycast(new Vector2(transform.position.x + (circleCollider.bounds.extents.x + 0.01f), transform.position.y), Vector2.right, groundDistance, mask);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

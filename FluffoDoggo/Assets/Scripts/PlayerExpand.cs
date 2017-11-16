@@ -17,30 +17,33 @@ public class PlayerExpand : MonoBehaviour {
     private GameObject bg;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         circleCollider = GetComponent<CircleCollider2D>();
         bg = transform.Find("TempBG").gameObject;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (Input.GetKeyDown(KeyCode.Keypad0)) //This is just to test it out. When this is implemented properly, we will need to stop both being triggered in the same update frame.
         {
             Expand();
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad1))
+        }else if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             Contract();
         }
 	}
 
-    void Expand() { //Make doggo bigger
+    public void Expand()
+    { //Make doggo bigger
         transform.position = new Vector2(transform.position.x, transform.position.y + 0.1F); //Change position to offset the expansion of the collider first
         circleCollider.radius += 0.1F; //Add 0.1 to the radius
         bg.transform.localScale = new Vector2(bg.transform.localScale.x + 0.2F, bg.transform.localScale.y + 0.2F); //Increase the background to compensate
     }
 
-    void Contract() { //Make doggo smaller, reversing the steps in Expand
+    public void Contract()
+    { //Make doggo smaller, reversing the steps in Expand
         if (circleCollider.radius > 0.5F) //So doggo can't shrink more than default
         {
             bg.transform.localScale = new Vector2(bg.transform.localScale.x - 0.2F, bg.transform.localScale.y - 0.2F); //Shrink Background
