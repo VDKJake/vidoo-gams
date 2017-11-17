@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerExpand : MonoBehaviour {
-
+public class PlayerExpand : MonoBehaviour
+{
     //To-do / Temp Stuff
     //The expand and contract functions increase the size of a child object called "TempBG". This is just so we can see how big the collider is.
     //It will need to be changed later on when we add in all the fur and stuff.
@@ -22,19 +22,16 @@ public class PlayerExpand : MonoBehaviour {
     {
         circleCollider = GetComponent<CircleCollider2D>();
         baseRadius = circleCollider.bounds.extents.x;
-        bg = transform.Find("TempBG").gameObject;
+        bg = GameObject.Find("TempBG");
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
         if (Input.GetKeyDown(KeyCode.Keypad0)) //This is just to test it out. When this is implemented properly, we will need to stop both being triggered in the same update frame.
-        {
             Expand();
-        }else if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
+        else if (Input.GetKeyDown(KeyCode.Keypad1))
             Contract();
-        }
 	}
 
     public void Expand()

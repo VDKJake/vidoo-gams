@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class FluffoPickup : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {

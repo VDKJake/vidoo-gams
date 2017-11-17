@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class CameraControls : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
+    private Vector2 offset;
+    private float smoothingTime = 0.3f;
+    private Vector2 vel = Vector2.zero;
 
-    private Vector3 offset;
-	// Use this for initialization
-	void Start ()
+	private void Start ()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         offset = transform.position - player.transform.position;
 	}
 	
-	// Update is called once per frame
-	void LateUpdate ()
+	private void Update ()
     {
-        transform.position = player.transform.position + offset;
+        Vector2 target = new Vector2(player.transform.position.x , player.transform.position.y) + offset;
+        transform.position = Vector2.SmoothDamp(transform.position, target, ref vel, smoothingTime, 10f, Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, transform.position.y, -10f);
 	}
 }
