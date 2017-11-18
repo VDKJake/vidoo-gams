@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
      * in CheckWall() need to make sure object hit is a wall and not anything (ramp, enemy, pick up)
      */
     public Animator faceAnimator;
+    public Animator feetAnimator;
 
     //serializefield keeps the variable private but displays it in the editor -> remove for release and change to a const with the final value
     [SerializeField]
@@ -95,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
         float y = Mathf.Clamp(rb.velocity.y, -10, 10);
         rb.velocity = new Vector2(moveSpeed, y);
         faceAnimator.SetFloat("Movespeed", rb.velocity.x);
+        feetAnimator.SetFloat("Movespeed", rb.velocity.x);
     }
 
     private bool IsGrounded()
