@@ -1667,6 +1667,26 @@ Prefab:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 1357350853944530, guid: e0e47fe1fcabc0b4da67d11119c6565b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799323925003430, guid: e0e47fe1fcabc0b4da67d11119c6565b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463195730062002, guid: e0e47fe1fcabc0b4da67d11119c6565b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017173240295668, guid: e0e47fe1fcabc0b4da67d11119c6565b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777142691273114, guid: e0e47fe1fcabc0b4da67d11119c6565b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0e47fe1fcabc0b4da67d11119c6565b, type: 2}
   m_IsPrefabParent: 0
