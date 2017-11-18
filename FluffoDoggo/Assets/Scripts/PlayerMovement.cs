@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     //serializefield keeps the variable private but displays it in the editor -> remove for release and change to a const with the final value
     [SerializeField]
-    private  float JUMPHEIGHT = 450f;
+    private  float JUMPHEIGHT; //was 450f, using size to alter this
     private Rigidbody2D rb;
     private float moveSpeed;
     private bool movingLeft;
@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        JUMPHEIGHT = 450F * (2 * GameObject.Find("TempBG").transform.localScale.x); //Using the scale to change the jump height. This is probably really wasteful. Maybe put it into the pickup code?
+
         //if player is on the ground and presses the jump button -> jump
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
