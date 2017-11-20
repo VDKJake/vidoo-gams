@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     private bool movingLeft;
     private bool onSlope;
     private bool jumpInput;
-    private bool collisionOn = true;
 
     private float groundDistance = 0.2f;
     private CircleCollider2D circleCollider;
@@ -113,16 +112,26 @@ public class PlayerMovement : MonoBehaviour
         //checks if there is a wall depending on direction traveling -> shouldn't need a bottom collision check
         if (movingLeft)
         {
-            hit = Physics2D.Raycast(new Vector2(transform.position.x - (circleCollider.bounds.extents.x + 0.01f), transform.position.y + (circleCollider.bounds.extents.y + 0.01f)), Vector2.left, groundDistance, mask); //top
-            hit = Physics2D.Raycast(new Vector2(transform.position.x - (circleCollider.bounds.extents.x + 0.01f), transform.position.y), Vector2.left, groundDistance, mask); //center
+            hit = Physics2D.Raycast(new Vector2(transform.position.x - (circleCollider.bounds.extents.x + 0.01f), transform.position.y + (circleCollider.bounds.extents.y + 0.01f)), Vector2.left, groundDistance, mask); //top left
+            if(hit && hit.collider.tag == "Ground")
+                return true;
+
+            hit = Physics2D.Raycast(new Vector2(transform.position.x - (circleCollider.bounds.extents.x + 0.01f), transform.position.y), Vector2.left, groundDistance, mask); //center left
+            if (hit && hit.collider.tag == "Ground")
+                return true;
         }
         else
         {
-            hit = Physics2D.Raycast(new Vector2(transform.position.x + (circleCollider.bounds.extents.x + 0.01f), transform.position.y + (circleCollider.bounds.extents.y + 0.01f)), Vector2.right, groundDistance, mask); //top
-            hit = Physics2D.Raycast(new Vector2(transform.position.x + (circleCollider.bounds.extents.x + 0.01f), transform.position.y), Vector2.right, groundDistance, mask); //center
+            hit = Physics2D.Raycast(new Vector2(transform.position.x + (circleCollider.bounds.extents.x + 0.01f), transform.position.y + (circleCollider.bounds.extents.y + 0.01f)), Vector2.right, groundDistance, mask); //top right
+            if (hit && hit.collider.tag == "Ground")
+                return true;
+
+            hit = Physics2D.Raycast(new Vector2(transform.position.x + (circleCollider.bounds.extents.x + 0.01f), transform.position.y), Vector2.right, groundDistance, mask); //center right
+            if (hit && hit.collider.tag == "Ground")
+                return true;
         }
         //hit returns true if there is a hit on a wall
-        return hit;
+        return false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
