@@ -9,34 +9,28 @@ public class OneWayPlatform : MonoBehaviour {
     BoxCollider2D[] colliders;
     BoxCollider2D platform;
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         colliders = GetComponents<BoxCollider2D>(); //Grab the colliders. I's like to find a better way to do this, that doesn't grab the trigger collider too
-        platform = colliders[0];
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+        foreach(BoxCollider2D c in colliders)
+        {
+            if(!c.isTrigger)
+            {
+                platform = c;
+                break;
+            }
+        }
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player") //Check that the player has entered the trigger
-        {
-            {
-                Physics2D.IgnoreCollision(collision, platform); //If the collider is not the trigger collider, this collider will ignore collisions with the player
-                //Debug.Log("Collision OFF");
-            }
-        }
+            Physics2D.IgnoreCollision(collision, platform); //If the collider is not the trigger collider, this collider will ignore collisions with the player
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
-        {
             Physics2D.IgnoreCollision(collision, platform, false); //un-ignoring collisions with the player
-            //Debug.Log("Collision ON:");
-        }
     }
 }

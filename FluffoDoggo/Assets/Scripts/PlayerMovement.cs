@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private bool movingLeft;
     private bool onSlope;
     private bool jumpInput;
+    private bool collisionOn = true;
 
     private float groundDistance = 0.2f;
     private CircleCollider2D circleCollider;
@@ -74,24 +75,24 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = -moveSpeed;
 
         //get the normal.x of the ground doggo is on
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - (circleCollider.bounds.extents.y + 0.01f)), Vector2.down, groundDistance, mask);
-        if (hit)
-        {
-            if (hit.collider.tag == "Ground" && hit.normal.x != 0)
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - (circleCollider.bounds.extents.y + 0.01f)), Vector2.down, groundDistance, mask);
+            if (hit)
             {
-                //if no input add the scale of doggo (not required if there is input because it is already added)
-                if (Input.GetAxis("Horizontal") == 0)
-                    moveSpeed += (hit.normal.x / 20) * GameObject.Find("TempBG").transform.localScale.x;
-                else
+                if (hit.collider.tag == "Ground" && hit.normal.x != 0)
                 {
-                    //apply normal.x to moveSpeed to account for slope angle and set on slope
-                    moveSpeed += (hit.normal.x / 20);
-                    onSlope = true;
+                    //if no input add the scale of doggo (not required if there is input because it is already added)
+                    if (Input.GetAxis("Horizontal") == 0)
+                        moveSpeed += (hit.normal.x / 20) * GameObject.Find("TempBG").transform.localScale.x;
+                    else
+                    {
+                        //apply normal.x to moveSpeed to account for slope angle and set on slope
+                        moveSpeed += (hit.normal.x / 20);
+                        onSlope = true;
+                    }
                 }
+                else
+                    onSlope = false;
             }
-            else
-                onSlope = false;
-        }
 
         //apply velocity changes
         float y = Mathf.Clamp(rb.velocity.y, -10, 10);
@@ -108,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CheckWall()
     {
-        bool hit = false;
+        RaycastHit2D hit;
         //checks if there is a wall depending on direction traveling -> shouldn't need a bottom collision check
         if (movingLeft)
         {
