@@ -5,18 +5,24 @@ using UnityEngine;
 public class FluffoPickup : MonoBehaviour
 {
     private GameObject player;
+    private bool used;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        used = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject == player)
+        if (used == false)
         {
-            player.GetComponent<PlayerExpand>().Expand();
-            Destroy(this.gameObject);
+            if (collider.gameObject == player)
+            {
+                used = true;
+                player.GetComponent<PlayerExpand>().Expand();
+                Destroy(this.gameObject);
+            }
         }
     }
 }
