@@ -1,15 +1,21 @@
 fileFormatVersion: 2
-guid: 262c680be9f8c1144b3877b8a4bc56dd
-timeCreated: 1511010763
+guid: 028446d1735c46c46affdabb0946ff85
+timeCreated: 1511007052
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: DoggoFeetsies_0
-    21300002: DoggoFeetsies_1
-    21300004: DoggoFeetsies_2
-    21300006: DoggoFeetsies_3
-    21300008: DoggoFeetsies_4
-    21300010: DoggoFeetsies_5
+    21300000: DoggoFacePantAnim_0
+    21300002: DoggoFacePantAnim_1
+    21300004: DoggoFacePantAnim_2
+    21300006: DoggoFacePantAnim_3
+    21300008: DoggoFacePantAnim_4
+    21300010: DoggoFacePantAnim_5
+    21300012: DoggoFacePantAnim_6
+    21300014: DoggoFacePantAnim_7
+    21300016: DoggoFacePantAnim_8
+    21300018: DoggoFacePantAnim_9
+    21300020: DoggoFacePantAnim_10
+    21300022: DoggoFacePantAnim_11
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -102,85 +108,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DoggoFeetsies_0
+      name: DoggoFacePantAnim_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 156
-        width: 156
-        height: 156
+        y: 192
+        width: 76
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DoggoFeetsies_1
+      name: DoggoFacePantAnim_1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 156
-        width: 156
-        height: 156
+        x: 76
+        y: 192
+        width: 76
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DoggoFeetsies_2
+      name: DoggoFacePantAnim_2
       rect:
         serializedVersion: 2
-        x: 312
-        y: 156
-        width: 156
-        height: 156
+        x: 152
+        y: 192
+        width: 76
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DoggoFeetsies_3
+      name: DoggoFacePantAnim_3
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 192
+        width: 76
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DoggoFacePantAnim_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 76
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DoggoFacePantAnim_5
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 96
+        width: 76
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DoggoFacePantAnim_6
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 96
+        width: 76
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DoggoFacePantAnim_7
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 96
+        width: 76
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DoggoFacePantAnim_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 156
-        height: 156
+        width: 76
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DoggoFeetsies_4
+      name: DoggoFacePantAnim_9
       rect:
         serializedVersion: 2
-        x: 156
+        x: 76
         y: 0
-        width: 156
-        height: 156
+        width: 76
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DoggoFeetsies_5
+      name: DoggoFacePantAnim_10
       rect:
         serializedVersion: 2
-        x: 312
+        x: 152
         y: 0
-        width: 156
-        height: 156
+        width: 76
+        height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DoggoFacePantAnim_11
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 76
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
