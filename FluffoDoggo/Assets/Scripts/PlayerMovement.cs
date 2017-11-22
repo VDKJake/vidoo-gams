@@ -144,4 +144,25 @@ public class PlayerMovement : MonoBehaviour
             jumpInput = false;
         }
     }
+
+    public void Bounce() //I've added this as a public function, so the actual bouncy platforms can just tell it to bounce.
+    {
+        Debug.Log("Bounce Called");
+        if (rb.velocity.y != 0) //If the player is airborne, add a force equal to twice the jump height
+        {
+            rb.AddForce(new Vector2(0, JUMPHEIGHT * 2));
+        }
+        else Debug.Log("Player Was Grounded");
+    }
+
+    public void Stop() //Public function for the same reason as bounce
+    {
+        Debug.Log("Stop Called");
+        if (rb.velocity.y != 0) //If the player is airborne, kill their momentum
+        {
+            moveSpeed = 0;
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+        }
+        else Debug.Log("Player was Grounded");
+    }
 }
