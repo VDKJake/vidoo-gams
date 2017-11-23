@@ -5,6 +5,8 @@ using UnityEngine;
 public class OneWayPlatform : MonoBehaviour {
     //NOTES
     //The trigger collider that this script references, needs to start under the platform, and finish before the top of the platform.
+    //Set and position the trigger using code
+    //Perhaps apply this to some of the other platform types
 
     BoxCollider2D[] colliders;
     BoxCollider2D platform;

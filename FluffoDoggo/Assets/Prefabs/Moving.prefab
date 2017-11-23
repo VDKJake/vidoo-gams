@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4980071246768602}
   - component: {fileID: 212788575354161678}
   m_Layer: 0
-  m_Name: Bouncy
+  m_Name: Moving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1aad1dd9f95a8bd46800d93709509459, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aee38333eaf98e24b9951ae7eba64cbf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
