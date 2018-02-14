@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     {
         JUMPHEIGHT = 450F * (2 * GameObject.Find("TempBG").transform.localScale.x); //Using the scale to change the jump height. This is probably really wasteful. Maybe put it into the pickup code?
 
+#if UNITY_STANDALONE_WIN
         //if player is on the ground and presses the jump button -> jump
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
@@ -62,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded())
         {
             moveSpeed += (Input.GetAxis("Horizontal") * Time.deltaTime) * GameObject.Find("TempBG").transform.localScale.x;
+<<<<<<< HEAD
 
             if ((movingLeft && Input.GetAxis("Horizontal") > 0) || (!movingLeft && Input.GetAxis("Horizontal") < 0)) //If axis points right and the player moves left OR If axis points left and the player moves right
             {
@@ -83,6 +85,8 @@ public class PlayerMovement : MonoBehaviour
         }
             
 
+=======
+>>>>>>> origin/AndroidTest
         //if no input decrease speed depending on direction if not on a slope or in the air -> slope allows for additional acceleration from the slope still
         if (!onSlope && IsGrounded())
         {
@@ -91,9 +95,35 @@ public class PlayerMovement : MonoBehaviour
             else if (moveSpeed > 0 && Input.GetAxis("Horizontal") == 0 && rb.velocity.x != 0)
                 moveSpeed -= Time.deltaTime * 2;
         }
+#endif
 
-        //ajust facing direction variable for wall bouncing
-        if (movingLeft && moveSpeed > 0)
+#if UNITY_ANDROID
+        if (Input.GetMouseButtonDown(0) && IsGrounded())
+        {
+            if ((rb.velocity.y >= 0))
+            {
+                rb.AddForce(new Vector2(0, JUMPHEIGHT));
+            }
+            else if ((rb.velocity.y < 0) && jumpInput == false)
+            {
+                jumpInput = true;
+            }
+        }
+
+        if (IsGrounded())
+            moveSpeed += (Input.acceleration.x) * 0.1f;
+
+        if (!onSlope && IsGrounded())
+        {
+            if (moveSpeed < 0 && (Input.acceleration.x < -1 && Input.acceleration.x > 1) && rb.velocity.x != 0)
+                moveSpeed += Time.deltaTime * 2;
+            else if (moveSpeed > 0 && (Input.acceleration.x <= -1 && Input.acceleration.x >= 1) && rb.velocity.x != 0)
+                moveSpeed -= Time.deltaTime * 2;
+        }
+#endif
+
+            //ajust facing direction variable for wall bouncing
+            if (movingLeft && moveSpeed > 0)
             movingLeft = !movingLeft;
         else if (!movingLeft && moveSpeed < 0)
             movingLeft = !movingLeft;
