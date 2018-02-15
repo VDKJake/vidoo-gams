@@ -63,8 +63,6 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded())
         {
             moveSpeed += (Input.GetAxis("Horizontal") * Time.deltaTime) * GameObject.Find("TempBG").transform.localScale.x;
-<<<<<<< HEAD
-
             if ((movingLeft && Input.GetAxis("Horizontal") > 0) || (!movingLeft && Input.GetAxis("Horizontal") < 0)) //If axis points right and the player moves left OR If axis points left and the player moves right
             {
                 moveSpeed += (slowFactor * (Input.GetAxis("Horizontal") * Time.deltaTime) * GameObject.Find("TempBG").transform.localScale.x); //Quickly slow the doggo down
@@ -83,10 +81,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed += (airSpeed * (Input.GetAxis("Horizontal") * Time.deltaTime) * GameObject.Find("TempBG").transform.localScale.x); //If the player is not grounded, apply half the movement. So players can control themselves mid-air
         }
-            
 
-=======
->>>>>>> origin/AndroidTest
         //if no input decrease speed depending on direction if not on a slope or in the air -> slope allows for additional acceleration from the slope still
         if (!onSlope && IsGrounded())
         {
