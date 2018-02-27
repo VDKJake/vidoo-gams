@@ -198,6 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a05e29687a7e4439ee79fceebca37e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fluffSlider: {fileID: 0}
+  handleAnimator: {fileID: 0}
 --- !u!114 &114929898673188582
 MonoBehaviour:
   m_ObjectHideFlags: 1

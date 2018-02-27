@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: 028446d1735c46c46affdabb0946ff85
-timeCreated: 1511007052
+guid: 6bfb9a2bd45591f469061452e2521aec
+timeCreated: 1519714518
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: DoggoFacePantAnim_0
-    21300002: DoggoFacePantAnim_1
-    21300004: DoggoFacePantAnim_2
-    21300006: DoggoFacePantAnim_3
-    21300008: DoggoFacePantAnim_4
-    21300010: DoggoFacePantAnim_5
-    21300012: DoggoFacePantAnim_6
-    21300014: DoggoFacePantAnim_7
-    21300016: DoggoFacePantAnim_8
-    21300018: DoggoFacePantAnim_9
-    21300020: DoggoFacePantAnim_10
-    21300022: DoggoFacePantAnim_11
+    21300000: DoggoFacePantAnimation_0
+    21300002: DoggoFacePantAnimation_1
+    21300004: DoggoFacePantAnimation_2
+    21300006: DoggoFacePantAnimation_3
+    21300008: DoggoFacePantAnimation_4
+    21300010: DoggoFacePantAnimation_5
+    21300012: DoggoFacePantAnimation_6
+    21300014: DoggoFacePantAnimation_7
+    21300016: DoggoFacePantAnimation_8
+    21300018: DoggoFacePantAnimation_9
+    21300020: DoggoFacePantAnimation_10
+    21300022: DoggoFacePantAnimation_11
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -58,7 +58,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -81,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -90,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -99,7 +99,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,169 +108,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DoggoFacePantAnim_0
+      name: DoggoFacePantAnimation_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
-        width: 76
-        height: 96
+        y: 48
+        width: 19
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DoggoFacePantAnim_1
+      name: DoggoFacePantAnimation_1
       rect:
         serializedVersion: 2
-        x: 76
-        y: 192
-        width: 76
-        height: 96
+        x: 19
+        y: 48
+        width: 19
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DoggoFacePantAnim_2
+      name: DoggoFacePantAnimation_2
       rect:
         serializedVersion: 2
-        x: 152
-        y: 192
-        width: 76
-        height: 96
+        x: 38
+        y: 48
+        width: 19
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DoggoFacePantAnim_3
+      name: DoggoFacePantAnimation_3
       rect:
         serializedVersion: 2
-        x: 228
-        y: 192
-        width: 76
-        height: 96
+        x: 57
+        y: 48
+        width: 19
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DoggoFacePantAnim_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 76
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DoggoFacePantAnim_5
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 96
-        width: 76
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DoggoFacePantAnim_6
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 96
-        width: 76
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DoggoFacePantAnim_7
-      rect:
-        serializedVersion: 2
-        x: 228
-        y: 96
-        width: 76
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DoggoFacePantAnim_8
+      name: DoggoFacePantAnimation_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 76
-        height: 96
+        y: 24
+        width: 19
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DoggoFacePantAnim_9
+      name: DoggoFacePantAnimation_5
       rect:
         serializedVersion: 2
-        x: 76
-        y: 0
-        width: 76
-        height: 96
+        x: 19
+        y: 24
+        width: 19
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DoggoFacePantAnim_10
+      name: DoggoFacePantAnimation_6
       rect:
         serializedVersion: 2
-        x: 152
-        y: 0
-        width: 76
-        height: 96
+        x: 38
+        y: 24
+        width: 19
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DoggoFacePantAnim_11
+      name: DoggoFacePantAnimation_7
       rect:
         serializedVersion: 2
-        x: 228
-        y: 0
-        width: 76
-        height: 96
+        x: 57
+        y: 24
+        width: 19
+        height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DoggoFacePantAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DoggoFacePantAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DoggoFacePantAnimation_10
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 0
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DoggoFacePantAnimation_11
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 0
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
